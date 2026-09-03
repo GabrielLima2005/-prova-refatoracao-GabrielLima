@@ -1,14 +1,6 @@
 package br.com.fiapride.model;
 
-/**
- * Representa um veiculo da frota do FiapRide.
- *
- * Esta classe foi refatorada a partir do codigo legado "veiculos":
- * - Atributos passaram de public para private (encapsulamento real).
- * - Nomes de atributos e metodos foram trocados por nomes claros (Clean Code).
- * - Adicionadas validacoes para impedir estados invalidos (gasolina negativa,
- *   consumo maior que o disponivel no tanque).
- */
+
 public class Veiculo {
 
     private String proprietario;
@@ -24,7 +16,7 @@ public class Veiculo {
         }
         this.proprietario = proprietario;
         this.placa = placa;
-        this.gasolina = 0.0; // todo veiculo comeca com o tanque vazio, nunca negativo
+        this.gasolina = 0.0; 
     }
 
     public String getProprietario() {
@@ -39,10 +31,6 @@ public class Veiculo {
         return gasolina;
     }
 
-    /**
-     * Adiciona combustivel ao tanque do veiculo.
-     * Substitui o antigo "adicionar(int v)".
-     */
     public void adicionarGasolina(double litros) {
         if (litros <= 0) {
             throw new IllegalArgumentException("A quantidade adicionada deve ser maior que zero.");
@@ -50,11 +38,6 @@ public class Veiculo {
         this.gasolina += litros;
     }
 
-    /**
-     * Consome combustivel do tanque do veiculo.
-     * Substitui o antigo "gasta(double v)".
-     * Impede que o consumo deixe a gasolina negativa.
-     */
     public void gastarGasolina(double litros) {
         if (litros <= 0) {
             throw new IllegalArgumentException("A quantidade consumida deve ser maior que zero.");
